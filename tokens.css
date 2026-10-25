@@ -1,0 +1,49 @@
+/* Tokens from 02-design/design-tokens.md (section 5), copied as is. Do not edit here: change them in 02-design. */
+:root {
+  --paper: #FFFFFF;
+  --paper-2: #F5F5F3;
+  --ink: #000000;
+  --ink-2: #3D3D3D;
+  --ink-3: #6B6B6B;
+  --ink-4: #A3A3A3;
+  --rule: #E3E3E3;
+  --rule-strong: #000000;
+
+  --st-green: #2E6B45;  --st-green-tint: #E9F1EC;
+  --st-amber: #9A5B00;  --st-amber-tint: #F7EEDD;
+  --st-red:   #B4232A;  --st-red-tint:   #F8E7E7;
+  --st-late:  #5C0F0B;  --st-late-tint:  #EFE3E2;
+  --st-done:  #6B6B6B;  --st-done-tint:  #F2F2F2;
+
+  --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-text: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --t-brief: 500 64px/68px var(--font-display);
+  --t-headline: 500 32px/38px var(--font-display);
+  --t-brief-sub: 400 18px/28px var(--font-text);
+  --t-date: 500 44px/44px var(--font-display);
+  --t-figure: 500 28px/32px var(--font-text);
+  --t-section: 500 11px/16px var(--font-text);
+  --t-label: 500 11px/16px var(--font-text);
+  --t-body: 400 15px/22px var(--font-text);
+  --t-small: 400 13px/18px var(--font-text);
+
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px;
+  --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px;
+
+  --rail: 360px;
+  --radius: 0;
+  --bar-height: 12px;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --dur: 320ms;
+  --dur-fast: 160ms;
+}
+
+body { background: var(--paper); color: var(--ink-2); font: var(--t-body); }
+.num { font-variant-numeric: tabular-nums lining-nums; }
+.caps { text-transform: uppercase; }
+.brief { letter-spacing: -0.03em; }
+.headline, .date { letter-spacing: -0.02em; }
+.label, .section { text-transform: uppercase; letter-spacing: 0.12em; }
+.section { letter-spacing: 0.16em; }
+@media (prefers-reduced-motion: reduce) { :root { --dur: 0ms; --dur-fast: 0ms; } }

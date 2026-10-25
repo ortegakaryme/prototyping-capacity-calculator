@@ -1,0 +1,8551 @@
+{
+ "meta": {
+  "source": "Anonymized demo data, built from a real PLM download (28 Nov 2025). Piece names, models and collections are not real.",
+  "author": "Karyme Ortega",
+  "workshop": "Luxury leather goods prototyping workshop, Florence",
+  "anonymized": true,
+  "note": "hoursToDo = remaining hours per step from standard times; 0 if step done or item assembled. Deliveries are a precomputed check of the Excel logic (cumulative usage)."
+ },
+ "config": {
+  "today": "2025-11-28",
+  "hoursPerPerson": 8,
+  "workingDays": "Mon-Fri",
+  "people": {
+   "cad": 1,
+   "cutting": 3,
+   "preparation": 3,
+   "assembly": 4
+  },
+  "hoursPerDay": {
+   "cad": 8,
+   "cutting": 24,
+   "preparation": 24,
+   "assembly": 32
+  },
+  "thresholds": {
+   "amber": 0.85,
+   "red": 1.0
+  },
+  "holidays": [
+   {
+    "date": "2025-12-08",
+    "name": "Immacolata"
+   },
+   {
+    "date": "2025-12-25",
+    "name": "Christmas"
+   },
+   {
+    "date": "2025-12-26",
+    "name": "Santo Stefano"
+   },
+   {
+    "date": "2026-01-01",
+    "name": "New Year"
+   },
+   {
+    "date": "2026-01-06",
+    "name": "Epiphany"
+   }
+  ],
+  "steps": [
+   {
+    "key": "cad",
+    "label": "CAD / DXF"
+   },
+   {
+    "key": "cutting",
+    "label": "Cutting"
+   },
+   {
+    "key": "preparation",
+    "label": "Preparation"
+   },
+   {
+    "key": "assembly",
+    "label": "Assembly"
+   }
+  ]
+ },
+ "standardTimes": [
+  {
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Easy",
+   "cad": 2.0,
+   "cutting": 1.5,
+   "preparation": 3.0,
+   "assembly": 4.0
+  },
+  {
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "cad": 2.5,
+   "cutting": 2.0,
+   "preparation": 4.0,
+   "assembly": 5.0
+  },
+  {
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Hard",
+   "cad": 3.0,
+   "cutting": 2.5,
+   "preparation": 5.0,
+   "assembly": 6.0
+  },
+  {
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "cad": 1.0,
+   "cutting": 1.0,
+   "preparation": 2.0,
+   "assembly": 2.5
+  },
+  {
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Medium",
+   "cad": 1.5,
+   "cutting": 1.2,
+   "preparation": 2.5,
+   "assembly": 3.0
+  },
+  {
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Hard",
+   "cad": 2.0,
+   "cutting": 1.5,
+   "preparation": 3.0,
+   "assembly": 3.5
+  },
+  {
+   "type": "Prototype",
+   "category": "Luggage",
+   "difficulty": "Easy",
+   "cad": 2.5,
+   "cutting": 2.0,
+   "preparation": 3.0,
+   "assembly": 4.5
+  },
+  {
+   "type": "Prototype",
+   "category": "Luggage",
+   "difficulty": "Medium",
+   "cad": 3.0,
+   "cutting": 2.5,
+   "preparation": 4.5,
+   "assembly": 5.5
+  },
+  {
+   "type": "Prototype",
+   "category": "Luggage",
+   "difficulty": "Hard",
+   "cad": 3.5,
+   "cutting": 3.0,
+   "preparation": 5.0,
+   "assembly": 6.0
+  },
+  {
+   "type": "Prototype",
+   "category": "Belts",
+   "difficulty": "Easy",
+   "cad": 1.0,
+   "cutting": 0.8,
+   "preparation": 1.5,
+   "assembly": 2.0
+  },
+  {
+   "type": "Prototype",
+   "category": "Belts",
+   "difficulty": "Medium",
+   "cad": 1.5,
+   "cutting": 1.2,
+   "preparation": 2.0,
+   "assembly": 2.5
+  },
+  {
+   "type": "Prototype",
+   "category": "Belts",
+   "difficulty": "Hard",
+   "cad": 2.0,
+   "cutting": 1.5,
+   "preparation": 2.5,
+   "assembly": 3.0
+  },
+  {
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Easy",
+   "cad": 1.5,
+   "cutting": 1.0,
+   "preparation": 2.0,
+   "assembly": 3.0
+  },
+  {
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "cad": 2.0,
+   "cutting": 1.5,
+   "preparation": 2.5,
+   "assembly": 3.5
+  },
+  {
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Hard",
+   "cad": 2.5,
+   "cutting": 2.0,
+   "preparation": 3.5,
+   "assembly": 4.5
+  },
+  {
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "cad": 0.8,
+   "cutting": 0.6,
+   "preparation": 1.5,
+   "assembly": 2.0
+  },
+  {
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Medium",
+   "cad": 1.2,
+   "cutting": 1.0,
+   "preparation": 2.0,
+   "assembly": 2.5
+  },
+  {
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Hard",
+   "cad": 1.5,
+   "cutting": 1.2,
+   "preparation": 2.5,
+   "assembly": 3.0
+  },
+  {
+   "type": "Sample",
+   "category": "Luggage",
+   "difficulty": "Easy",
+   "cad": 1.8,
+   "cutting": 1.5,
+   "preparation": 2.5,
+   "assembly": 3.5
+  },
+  {
+   "type": "Sample",
+   "category": "Luggage",
+   "difficulty": "Medium",
+   "cad": 2.3,
+   "cutting": 2.0,
+   "preparation": 3.0,
+   "assembly": 4.0
+  },
+  {
+   "type": "Sample",
+   "category": "Luggage",
+   "difficulty": "Hard",
+   "cad": 2.8,
+   "cutting": 2.3,
+   "preparation": 3.5,
+   "assembly": 4.5
+  },
+  {
+   "type": "Sample",
+   "category": "Belts",
+   "difficulty": "Easy",
+   "cad": 0.8,
+   "cutting": 0.6,
+   "preparation": 1.0,
+   "assembly": 1.5
+  },
+  {
+   "type": "Sample",
+   "category": "Belts",
+   "difficulty": "Medium",
+   "cad": 1.0,
+   "cutting": 0.8,
+   "preparation": 1.5,
+   "assembly": 2.0
+  },
+  {
+   "type": "Sample",
+   "category": "Belts",
+   "difficulty": "Hard",
+   "cad": 1.2,
+   "cutting": 1.0,
+   "preparation": 1.8,
+   "assembly": 2.5
+  }
+ ],
+ "deliveries": [
+  {
+   "date": "2025-12-01",
+   "workingDaysLeft": 2,
+   "items": 47,
+   "finished": 45,
+   "ready": 1,
+   "hoursToDoThisDelivery": 15.5,
+   "hoursNeededCumulative": {
+    "cad": 2.5,
+    "cutting": 2.0,
+    "preparation": 4.0,
+    "assembly": 7.0
+   },
+   "hoursAvailable": {
+    "cad": 16,
+    "cutting": 48,
+    "preparation": 48,
+    "assembly": 64
+   },
+   "usage": {
+    "cad": 0.1562,
+    "cutting": 0.0417,
+    "preparation": 0.0833,
+    "assembly": 0.1094
+   },
+   "bottleneck": "cad",
+   "missingHours": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "missingHoursTotal": 0,
+   "extraPeople": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "trafficLight": "GREEN",
+   "nonWorkingDay": null
+  },
+  {
+   "date": "2025-12-03",
+   "workingDaysLeft": 4,
+   "items": 28,
+   "finished": 4,
+   "ready": 5,
+   "hoursToDoThisDelivery": 164.6,
+   "hoursNeededCumulative": {
+    "cad": 16.5,
+    "cutting": 18.6,
+    "preparation": 44.5,
+    "assembly": 100.5
+   },
+   "hoursAvailable": {
+    "cad": 32,
+    "cutting": 96,
+    "preparation": 96,
+    "assembly": 128
+   },
+   "usage": {
+    "cad": 0.5156,
+    "cutting": 0.1938,
+    "preparation": 0.4635,
+    "assembly": 0.7852
+   },
+   "bottleneck": "assembly",
+   "missingHours": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "missingHoursTotal": 0,
+   "extraPeople": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "trafficLight": "GREEN",
+   "nonWorkingDay": null
+  },
+  {
+   "date": "2025-12-06",
+   "workingDaysLeft": 6,
+   "items": 10,
+   "finished": 0,
+   "ready": 0,
+   "hoursToDoThisDelivery": 58.7,
+   "hoursNeededCumulative": {
+    "cad": 20.5,
+    "cutting": 27.3,
+    "preparation": 60.0,
+    "assembly": 131.0
+   },
+   "hoursAvailable": {
+    "cad": 48,
+    "cutting": 144,
+    "preparation": 144,
+    "assembly": 192
+   },
+   "usage": {
+    "cad": 0.4271,
+    "cutting": 0.1896,
+    "preparation": 0.4167,
+    "assembly": 0.6823
+   },
+   "bottleneck": "assembly",
+   "missingHours": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "missingHoursTotal": 0,
+   "extraPeople": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "trafficLight": "GREEN",
+   "nonWorkingDay": "Saturday"
+  },
+  {
+   "date": "2025-12-08",
+   "workingDaysLeft": 6,
+   "items": 37,
+   "finished": 9,
+   "ready": 14,
+   "hoursToDoThisDelivery": 197.5,
+   "hoursNeededCumulative": {
+    "cad": 40.0,
+    "cutting": 55.3,
+    "preparation": 112.0,
+    "assembly": 229.0
+   },
+   "hoursAvailable": {
+    "cad": 48,
+    "cutting": 144,
+    "preparation": 144,
+    "assembly": 192
+   },
+   "usage": {
+    "cad": 0.8333,
+    "cutting": 0.384,
+    "preparation": 0.7778,
+    "assembly": 1.1927
+   },
+   "bottleneck": "assembly",
+   "missingHours": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 37.0
+   },
+   "missingHoursTotal": 37.0,
+   "extraPeople": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 1
+   },
+   "trafficLight": "RED",
+   "nonWorkingDay": "Immacolata"
+  },
+  {
+   "date": "2025-12-10",
+   "workingDaysLeft": 8,
+   "items": 124,
+   "finished": 15,
+   "ready": 11,
+   "hoursToDoThisDelivery": 684.0,
+   "hoursNeededCumulative": {
+    "cad": 139.5,
+    "cutting": 153.3,
+    "preparation": 312.0,
+    "assembly": 515.5
+   },
+   "hoursAvailable": {
+    "cad": 64,
+    "cutting": 192,
+    "preparation": 192,
+    "assembly": 256
+   },
+   "usage": {
+    "cad": 2.1797,
+    "cutting": 0.7984,
+    "preparation": 1.625,
+    "assembly": 2.0137
+   },
+   "bottleneck": "cad",
+   "missingHours": {
+    "cad": 75.5,
+    "cutting": 0,
+    "preparation": 120.0,
+    "assembly": 259.5
+   },
+   "missingHoursTotal": 455.0,
+   "extraPeople": {
+    "cad": 2,
+    "cutting": 0,
+    "preparation": 2,
+    "assembly": 5
+   },
+   "trafficLight": "RED",
+   "nonWorkingDay": null
+  },
+  {
+   "date": "2025-12-11",
+   "workingDaysLeft": 9,
+   "items": 1,
+   "finished": 0,
+   "ready": 0,
+   "hoursToDoThisDelivery": 13.5,
+   "hoursNeededCumulative": {
+    "cad": 142.0,
+    "cutting": 155.3,
+    "preparation": 316.0,
+    "assembly": 520.5
+   },
+   "hoursAvailable": {
+    "cad": 72,
+    "cutting": 216,
+    "preparation": 216,
+    "assembly": 288
+   },
+   "usage": {
+    "cad": 1.9722,
+    "cutting": 0.719,
+    "preparation": 1.463,
+    "assembly": 1.8073
+   },
+   "bottleneck": "cad",
+   "missingHours": {
+    "cad": 70.0,
+    "cutting": 0,
+    "preparation": 100.0,
+    "assembly": 232.5
+   },
+   "missingHoursTotal": 402.5,
+   "extraPeople": {
+    "cad": 1,
+    "cutting": 0,
+    "preparation": 2,
+    "assembly": 4
+   },
+   "trafficLight": "RED",
+   "nonWorkingDay": null
+  },
+  {
+   "date": "2025-12-16",
+   "workingDaysLeft": 12,
+   "items": 18,
+   "finished": 0,
+   "ready": 2,
+   "hoursToDoThisDelivery": 92.0,
+   "hoursNeededCumulative": {
+    "cad": 147.2,
+    "cutting": 169.1,
+    "preparation": 347.0,
+    "assembly": 562.5
+   },
+   "hoursAvailable": {
+    "cad": 96,
+    "cutting": 288,
+    "preparation": 288,
+    "assembly": 384
+   },
+   "usage": {
+    "cad": 1.5333,
+    "cutting": 0.5872,
+    "preparation": 1.2049,
+    "assembly": 1.4648
+   },
+   "bottleneck": "cad",
+   "missingHours": {
+    "cad": 51.2,
+    "cutting": 0,
+    "preparation": 59.0,
+    "assembly": 178.5
+   },
+   "missingHoursTotal": 288.7,
+   "extraPeople": {
+    "cad": 1,
+    "cutting": 0,
+    "preparation": 1,
+    "assembly": 2
+   },
+   "trafficLight": "RED",
+   "nonWorkingDay": null
+  },
+  {
+   "date": "2026-01-09",
+   "workingDaysLeft": 26,
+   "items": 17,
+   "finished": 0,
+   "ready": 1,
+   "hoursToDoThisDelivery": 88.7,
+   "hoursNeededCumulative": {
+    "cad": 159.6,
+    "cutting": 180.4,
+    "preparation": 373.0,
+    "assembly": 601.5
+   },
+   "hoursAvailable": {
+    "cad": 208,
+    "cutting": 624,
+    "preparation": 624,
+    "assembly": 832
+   },
+   "usage": {
+    "cad": 0.7673,
+    "cutting": 0.2891,
+    "preparation": 0.5978,
+    "assembly": 0.723
+   },
+   "bottleneck": "cad",
+   "missingHours": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "missingHoursTotal": 0,
+   "extraPeople": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "trafficLight": "GREEN",
+   "nonWorkingDay": null
+  }
+ ],
+ "items": [
+  {
+   "id": 1,
+   "item": "Leather good 001",
+   "model": "Model 0001",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2026-01-09",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 2,
+   "item": "Leather good 002",
+   "model": "Model 0002",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2026-01-09",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 3,
+   "item": "Leather good 003",
+   "model": "Model 0003",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2026-01-09",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 4,
+   "item": "Leather good 004",
+   "model": "Model 0004",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2026-01-09",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 5,
+   "item": "Leather good 005",
+   "model": "Model 0005",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2026-01-09",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 6,
+   "item": "Leather good 006",
+   "model": "Model 0006",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2026-01-09",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 7,
+   "item": "Leather good 007",
+   "model": "Model 0007",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2026-01-09",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 8,
+   "item": "Leather good 008",
+   "model": "Model 0008",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 9,
+   "item": "Leather good 009",
+   "model": "Model 0008",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 10,
+   "item": "Leather good 010",
+   "model": "Model 0008",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 11,
+   "item": "Leather good 011",
+   "model": "Model 0009",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 12,
+   "item": "Leather good 012",
+   "model": "Model 0010",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 13,
+   "item": "Leather good 013",
+   "model": "Model 0011",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 14,
+   "item": "Leather good 014",
+   "model": "Model 0012",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": true,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 15,
+   "item": "Leather good 015",
+   "model": "Model 0013",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 16,
+   "item": "Leather good 016",
+   "model": "Model 0014",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 1.0,
+    "cutting": 1.0,
+    "preparation": 2.0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 6.5,
+   "readyToWork": true,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 17,
+   "item": "Leather good 017",
+   "model": "Model 0015",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2026-01-09",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 18,
+   "item": "Leather good 018",
+   "model": "Model 0016",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2026-01-09",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 19,
+   "item": "Leather good 019",
+   "model": "Model 0017",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2026-01-09",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 20,
+   "item": "Leather good 020",
+   "model": "Model 0018",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2026-01-09",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 21,
+   "item": "Leather good 021",
+   "model": "Model 0019",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.0,
+    "preparation": 2.0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 5.5,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 22,
+   "item": "Leather good 022",
+   "model": "Model 0020",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 23,
+   "item": "Leather good 023",
+   "model": "Model 0021",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 24,
+   "item": "Leather good 024",
+   "model": "Model 0022",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 1.0,
+    "cutting": 1.0,
+    "preparation": 2.0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 6.5,
+   "readyToWork": true,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 25,
+   "item": "Leather good 025",
+   "model": "Model 0023",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 1.0,
+    "cutting": 1.0,
+    "preparation": 2.0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 6.5,
+   "readyToWork": true,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 26,
+   "item": "Leather good 026",
+   "model": "Model 0024",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 1.0,
+    "cutting": 1.0,
+    "preparation": 2.0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 6.5,
+   "readyToWork": true,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 27,
+   "item": "Leather good 027",
+   "model": "Model 0025",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 1.0,
+    "cutting": 1.0,
+    "preparation": 2.0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 6.5,
+   "readyToWork": true,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 28,
+   "item": "Leather good 028",
+   "model": "Model 0026",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.0,
+    "preparation": 2.0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 5.5,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 29,
+   "item": "Leather good 029",
+   "model": "Model 0027",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.0,
+    "preparation": 2.0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 5.5,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 30,
+   "item": "Leather good 030",
+   "model": "Model 0028",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 1.0,
+    "cutting": 1.0,
+    "preparation": 2.0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 6.5,
+   "readyToWork": true,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 31,
+   "item": "Leather good 031",
+   "model": "Model 0029",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.0,
+    "preparation": 2.0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 5.5,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 32,
+   "item": "Bag 001",
+   "model": "Model 0030",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection E",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 3.5,
+   "readyToWork": false,
+   "currentStep": "Waiting accessories",
+   "dataIssues": []
+  },
+  {
+   "id": 33,
+   "item": "Bag 002",
+   "model": "Model 0031",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 3.5,
+   "readyToWork": true,
+   "currentStep": "Assembly",
+   "dataIssues": []
+  },
+  {
+   "id": 34,
+   "item": "Leather good 032",
+   "model": "Model 0032",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 2.5,
+   "readyToWork": true,
+   "currentStep": "Assembly",
+   "dataIssues": []
+  },
+  {
+   "id": 35,
+   "item": "Bag 003",
+   "model": "Model 0033",
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.5,
+    "cutting": 2.0,
+    "preparation": 4.0,
+    "assembly": 5.0
+   },
+   "hoursToDoTotal": 13.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 36,
+   "item": "Bag 004",
+   "model": "Model 0034",
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.5,
+    "cutting": 2.0,
+    "preparation": 4.0,
+    "assembly": 5.0
+   },
+   "hoursToDoTotal": 13.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 37,
+   "item": "Bag 005",
+   "model": "Model 0035",
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 5.0
+   },
+   "hoursToDoTotal": 5.0,
+   "readyToWork": false,
+   "currentStep": "Waiting accessories",
+   "dataIssues": []
+  },
+  {
+   "id": 38,
+   "item": "Bag 006",
+   "model": "Model 0036",
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.5,
+    "cutting": 2.0,
+    "preparation": 4.0,
+    "assembly": 5.0
+   },
+   "hoursToDoTotal": 13.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 39,
+   "item": "Leather good 033",
+   "model": "Model 0037",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 40,
+   "item": "Leather good 034",
+   "model": "Model 0038",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.0,
+    "preparation": 2.0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 5.5,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 41,
+   "item": "Bag 007",
+   "model": "Model 0039",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 3.5,
+   "readyToWork": false,
+   "currentStep": "Waiting accessories",
+   "dataIssues": []
+  },
+  {
+   "id": 42,
+   "item": "Bag 008",
+   "model": "Model 0040",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 7.5,
+   "readyToWork": false,
+   "currentStep": "Cutting",
+   "dataIssues": []
+  },
+  {
+   "id": 43,
+   "item": "Bag 009",
+   "model": "Model 0040",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 7.5,
+   "readyToWork": false,
+   "currentStep": "Cutting",
+   "dataIssues": []
+  },
+  {
+   "id": 44,
+   "item": "Leather good 035",
+   "model": "Model 0041",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-16",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 45,
+   "item": "Leather good 036",
+   "model": "Model 0042",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 46,
+   "item": "Bag 010",
+   "model": "Model 0043",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-06",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 7.5,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 47,
+   "item": "Leather good 037",
+   "model": "Model 0044",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 48,
+   "item": "Leather good 038",
+   "model": "Model 0044",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 49,
+   "item": "Leather good 039",
+   "model": "Model 0044",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-16",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 50,
+   "item": "Leather good 040",
+   "model": "Model 0045",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 51,
+   "item": "Leather good 041",
+   "model": "Model 0045",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 52,
+   "item": "Travel piece 001",
+   "model": "Model 0046",
+   "type": "Prototype",
+   "category": "Luggage",
+   "difficulty": "Hard",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 3.5,
+    "cutting": 3.0,
+    "preparation": 5.0,
+    "assembly": 6.0
+   },
+   "hoursToDoTotal": 17.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 53,
+   "item": "Bag 011",
+   "model": "Model 0047",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 6.0,
+   "readyToWork": true,
+   "currentStep": "Preparation",
+   "dataIssues": []
+  },
+  {
+   "id": 54,
+   "item": "Bag 012",
+   "model": "Model 0048",
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 55,
+   "item": "Bag 013",
+   "model": "Model 0049",
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 56,
+   "item": "Leather good 042",
+   "model": "Model 0045",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 2.0,
+   "readyToWork": false,
+   "currentStep": "Waiting accessories",
+   "dataIssues": []
+  },
+  {
+   "id": 57,
+   "item": "Bag 014",
+   "model": "Model 0050",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-16",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 7.5,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 58,
+   "item": "Bag 015",
+   "model": "Model 0050",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 7.5,
+   "readyToWork": false,
+   "currentStep": "Cutting",
+   "dataIssues": []
+  },
+  {
+   "id": 59,
+   "item": "Bag 016",
+   "model": "Model 0050",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 7.5,
+   "readyToWork": false,
+   "currentStep": "Cutting",
+   "dataIssues": []
+  },
+  {
+   "id": 60,
+   "item": "Bag 017",
+   "model": "Model 0050",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 7.5,
+   "readyToWork": false,
+   "currentStep": "Cutting",
+   "dataIssues": []
+  },
+  {
+   "id": 61,
+   "item": "Bag 018",
+   "model": "Model 0051",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-06",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 3.5,
+   "readyToWork": false,
+   "currentStep": "Waiting accessories",
+   "dataIssues": []
+  },
+  {
+   "id": 62,
+   "item": "Bag 019",
+   "model": "Model 0052",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 3.5,
+   "readyToWork": true,
+   "currentStep": "Assembly",
+   "dataIssues": []
+  },
+  {
+   "id": 63,
+   "item": "Bag 020",
+   "model": "Model 0053",
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 5.0
+   },
+   "hoursToDoTotal": 5.0,
+   "readyToWork": false,
+   "currentStep": "Waiting accessories",
+   "dataIssues": []
+  },
+  {
+   "id": 64,
+   "item": "Bag 021",
+   "model": "Model 0054",
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 65,
+   "item": "Leather good 043",
+   "model": "Model 0055",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Cutting",
+   "dataIssues": []
+  },
+  {
+   "id": 66,
+   "item": "Bag 022",
+   "model": "Model 0056",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-06",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 7.5,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 67,
+   "item": "Bag 023",
+   "model": "Model 0056",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-06",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 3.5,
+   "readyToWork": false,
+   "currentStep": "Waiting accessories",
+   "dataIssues": []
+  },
+  {
+   "id": 68,
+   "item": "Bag 024",
+   "model": "Model 0057",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 7.5,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 69,
+   "item": "Bag 025",
+   "model": "Model 0058",
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection D",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.5,
+    "cutting": 2.0,
+    "preparation": 4.0,
+    "assembly": 5.0
+   },
+   "hoursToDoTotal": 13.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 70,
+   "item": "Bag 026",
+   "model": "Model 0059",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 7.5,
+   "readyToWork": true,
+   "currentStep": "Cutting",
+   "dataIssues": []
+  },
+  {
+   "id": 71,
+   "item": "Leather good 044",
+   "model": "Model 0060",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Cutting",
+   "dataIssues": []
+  },
+  {
+   "id": 72,
+   "item": "Leather good 045",
+   "model": "Model 0060",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-16",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Cutting",
+   "dataIssues": []
+  },
+  {
+   "id": 73,
+   "item": "Leather good 046",
+   "model": "Model 0060",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Cutting",
+   "dataIssues": []
+  },
+  {
+   "id": 74,
+   "item": "Leather good 047",
+   "model": "Model 0060",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-16",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 3.5,
+   "readyToWork": false,
+   "currentStep": "Preparation",
+   "dataIssues": []
+  },
+  {
+   "id": 75,
+   "item": "Bag 027",
+   "model": "Model 0061",
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 2.0,
+    "preparation": 4.0,
+    "assembly": 5.0
+   },
+   "hoursToDoTotal": 11.0,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 76,
+   "item": "Bag 028",
+   "model": "Model 0062",
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 4.0,
+    "assembly": 5.0
+   },
+   "hoursToDoTotal": 9.0,
+   "readyToWork": false,
+   "currentStep": "Preparation",
+   "dataIssues": []
+  },
+  {
+   "id": 77,
+   "item": "Bag 029",
+   "model": "Model 0063",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 7.5,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 78,
+   "item": "Bag 030",
+   "model": "Model 0063",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-06",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 7.5,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 79,
+   "item": "Bag 031",
+   "model": "Model 0064",
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.5,
+    "cutting": 2.0,
+    "preparation": 4.0,
+    "assembly": 5.0
+   },
+   "hoursToDoTotal": 13.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 80,
+   "item": "Bag 032",
+   "model": "Model 0056",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 3.5,
+   "readyToWork": false,
+   "currentStep": "Waiting accessories",
+   "dataIssues": []
+  },
+  {
+   "id": 81,
+   "item": "Leather good 048",
+   "model": "Model 0065",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 2.0,
+   "readyToWork": false,
+   "currentStep": "Waiting accessories",
+   "dataIssues": []
+  },
+  {
+   "id": 82,
+   "item": "Leather good 049",
+   "model": "Model 0065",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 2.0,
+   "readyToWork": false,
+   "currentStep": "Waiting accessories",
+   "dataIssues": []
+  },
+  {
+   "id": 83,
+   "item": "Leather good 050",
+   "model": "Model 0066",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-06",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 2.0,
+   "readyToWork": false,
+   "currentStep": "Waiting accessories",
+   "dataIssues": []
+  },
+  {
+   "id": 84,
+   "item": "Leather good 051",
+   "model": "Model 0066",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-06",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 85,
+   "item": "Bag 033",
+   "model": "Model 0067",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 86,
+   "item": "Leather good 052",
+   "model": "Model 0068",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 2.5,
+   "readyToWork": true,
+   "currentStep": "Assembly",
+   "dataIssues": []
+  },
+  {
+   "id": 87,
+   "item": "Leather good 053",
+   "model": "Model 0069",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.0,
+    "preparation": 2.0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 5.5,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 88,
+   "item": "Leather good 054",
+   "model": "Model 0070",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 2.0,
+   "readyToWork": true,
+   "currentStep": "Assembly",
+   "dataIssues": []
+  },
+  {
+   "id": 89,
+   "item": "Leather good 055",
+   "model": "Model 0070",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 90,
+   "item": "Leather good 056",
+   "model": "Model 0071",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 91,
+   "item": "Leather good 057",
+   "model": "Model 0071",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 92,
+   "item": "Leather good 058",
+   "model": "Model 0072",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 93,
+   "item": "Leather good 059",
+   "model": "Model 0073",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 2.0,
+   "readyToWork": false,
+   "currentStep": "Waiting accessories",
+   "dataIssues": []
+  },
+  {
+   "id": 94,
+   "item": "Bag 034",
+   "model": "Model 0074",
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.5,
+    "cutting": 2.0,
+    "preparation": 4.0,
+    "assembly": 5.0
+   },
+   "hoursToDoTotal": 13.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 95,
+   "item": "Bag 035",
+   "model": "Model 0075",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": false,
+   "currentStep": "Finished",
+   "dataIssues": [
+    "Assembled without accessories arrived"
+   ]
+  },
+  {
+   "id": 96,
+   "item": "Leather good 060",
+   "model": "Model 0076",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 97,
+   "item": "Leather good 061",
+   "model": "Model 0077",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 98,
+   "item": "Leather good 062",
+   "model": "Model 0078",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 99,
+   "item": "Leather good 063",
+   "model": "Model 0078",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 2.0,
+   "readyToWork": true,
+   "currentStep": "Assembly",
+   "dataIssues": []
+  },
+  {
+   "id": 100,
+   "item": "Leather good 064",
+   "model": "Model 0079",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 101,
+   "item": "Bag 036",
+   "model": "Model 0080",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 102,
+   "item": "Bag 037",
+   "model": "Model 0081",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 103,
+   "item": "Bag 038",
+   "model": "Model 0082",
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection C",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 104,
+   "item": "Leather good 065",
+   "model": "Model 0083",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 105,
+   "item": "Bag 039",
+   "model": "Model 0084",
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 5.0
+   },
+   "hoursToDoTotal": 5.0,
+   "readyToWork": true,
+   "currentStep": "Assembly",
+   "dataIssues": []
+  },
+  {
+   "id": 106,
+   "item": "Travel piece 002",
+   "model": "Model 0085",
+   "type": "Prototype",
+   "category": "Luggage",
+   "difficulty": "Hard",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 107,
+   "item": "Bag 040",
+   "model": "Model 0086",
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection C",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 5.0
+   },
+   "hoursToDoTotal": 5.0,
+   "readyToWork": true,
+   "currentStep": "Assembly",
+   "dataIssues": []
+  },
+  {
+   "id": 108,
+   "item": "Leather good 066",
+   "model": "Model 0087",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-06",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 109,
+   "item": "Leather good 067",
+   "model": "Model 0088",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 110,
+   "item": "Leather good 068",
+   "model": "Model 0088",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 111,
+   "item": "Leather good 069",
+   "model": "Model 0089",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 112,
+   "item": "Leather good 070",
+   "model": "Model 0089",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 113,
+   "item": "Leather good 071",
+   "model": "Model 0089",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 114,
+   "item": "Leather good 072",
+   "model": "Model 0089",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 115,
+   "item": "Travel piece 003",
+   "model": "Model 0090",
+   "type": "Prototype",
+   "category": "Luggage",
+   "difficulty": "Hard",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 6.0
+   },
+   "hoursToDoTotal": 6.0,
+   "readyToWork": true,
+   "currentStep": "Assembly",
+   "dataIssues": []
+  },
+  {
+   "id": 116,
+   "item": "Travel piece 004",
+   "model": "Model 0091",
+   "type": "Prototype",
+   "category": "Luggage",
+   "difficulty": "Hard",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 6.0
+   },
+   "hoursToDoTotal": 6.0,
+   "readyToWork": true,
+   "currentStep": "Assembly",
+   "dataIssues": []
+  },
+  {
+   "id": 117,
+   "item": "Leather good 073",
+   "model": "Model 0092",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 118,
+   "item": "Leather good 074",
+   "model": "Model 0092",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 119,
+   "item": "Leather good 075",
+   "model": "Model 0092",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 120,
+   "item": "Leather good 076",
+   "model": "Model 0092",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 121,
+   "item": "Leather good 077",
+   "model": "Model 0093",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": false,
+   "currentStep": "Finished",
+   "dataIssues": [
+    "Assembled without accessories arrived"
+   ]
+  },
+  {
+   "id": 122,
+   "item": "Leather good 078",
+   "model": "Model 0093",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": false,
+   "currentStep": "Finished",
+   "dataIssues": [
+    "Assembled without accessories arrived"
+   ]
+  },
+  {
+   "id": 123,
+   "item": "Leather good 079",
+   "model": "Model 0093",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": false,
+   "currentStep": "Finished",
+   "dataIssues": [
+    "Assembled without accessories arrived"
+   ]
+  },
+  {
+   "id": 124,
+   "item": "Leather good 080",
+   "model": "Model 0093",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": false,
+   "currentStep": "Finished",
+   "dataIssues": [
+    "Assembled without accessories arrived"
+   ]
+  },
+  {
+   "id": 125,
+   "item": "Leather good 081",
+   "model": "Model 0093",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": false,
+   "currentStep": "Finished",
+   "dataIssues": [
+    "Assembled without accessories arrived"
+   ]
+  },
+  {
+   "id": 126,
+   "item": "Leather good 082",
+   "model": "Model 0094",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": false,
+   "currentStep": "Finished",
+   "dataIssues": [
+    "Assembled without accessories arrived"
+   ]
+  },
+  {
+   "id": 127,
+   "item": "Leather good 083",
+   "model": "Model 0095",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection F",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 128,
+   "item": "Leather good 084",
+   "model": "Model 0096",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": false,
+   "currentStep": "Finished",
+   "dataIssues": [
+    "Assembled without accessories arrived"
+   ]
+  },
+  {
+   "id": 129,
+   "item": "Leather good 085",
+   "model": "Model 0097",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 130,
+   "item": "Leather good 086",
+   "model": "Model 0098",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": false,
+   "currentStep": "Finished",
+   "dataIssues": [
+    "Assembled without accessories arrived"
+   ]
+  },
+  {
+   "id": 131,
+   "item": "Leather good 087",
+   "model": "Model 0099",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 132,
+   "item": "Leather good 088",
+   "model": "Model 0099",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-16",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 133,
+   "item": "Leather good 089",
+   "model": "Model 0100",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-16",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 134,
+   "item": "Leather good 090",
+   "model": "Model 0100",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 135,
+   "item": "Leather good 091",
+   "model": "Model 0101",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.0,
+    "preparation": 2.0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 5.5,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 136,
+   "item": "Leather good 092",
+   "model": "Model 0102",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.0,
+    "preparation": 2.0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 5.5,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 137,
+   "item": "Leather good 093",
+   "model": "Model 0103",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 138,
+   "item": "Leather good 094",
+   "model": "Model 0104",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": false,
+   "currentStep": "Finished",
+   "dataIssues": [
+    "Assembled without accessories arrived"
+   ]
+  },
+  {
+   "id": 139,
+   "item": "Leather good 095",
+   "model": "Model 0105",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 140,
+   "item": "Leather good 096",
+   "model": "Model 0106",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 2.5,
+   "readyToWork": true,
+   "currentStep": "Assembly",
+   "dataIssues": []
+  },
+  {
+   "id": 141,
+   "item": "Leather good 097",
+   "model": "Model 0107",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 142,
+   "item": "Leather good 098",
+   "model": "Model 0108",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 143,
+   "item": "Leather good 099",
+   "model": "Model 0109",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 144,
+   "item": "Leather good 100",
+   "model": "Model 0110",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 2.0,
+   "readyToWork": true,
+   "currentStep": "Assembly",
+   "dataIssues": []
+  },
+  {
+   "id": 145,
+   "item": "Leather good 101",
+   "model": "Model 0111",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 146,
+   "item": "Leather good 102",
+   "model": "Model 0111",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 147,
+   "item": "Leather good 103",
+   "model": "Model 0111",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 148,
+   "item": "Leather good 104",
+   "model": "Model 0112",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 149,
+   "item": "Leather good 105",
+   "model": "Model 0112",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 150,
+   "item": "Leather good 106",
+   "model": "Model 0112",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 151,
+   "item": "Leather good 107",
+   "model": "Model 0112",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 152,
+   "item": "Leather good 108",
+   "model": "Model 0109",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 153,
+   "item": "Leather good 109",
+   "model": "Model 0113",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 154,
+   "item": "Leather good 110",
+   "model": "Model 0113",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-16",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 155,
+   "item": "Leather good 111",
+   "model": "Model 0114",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 2.5,
+   "readyToWork": true,
+   "currentStep": "Assembly",
+   "dataIssues": []
+  },
+  {
+   "id": 156,
+   "item": "Leather good 112",
+   "model": "Model 0115",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.0,
+    "preparation": 2.0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 5.5,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 157,
+   "item": "Leather good 113",
+   "model": "Model 0116",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 158,
+   "item": "Leather good 114",
+   "model": "Model 0116",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 159,
+   "item": "Leather good 115",
+   "model": "Model 0088",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 160,
+   "item": "Leather good 116",
+   "model": "Model 0088",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 161,
+   "item": "Leather good 117",
+   "model": "Model 0117",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 162,
+   "item": "Leather good 118",
+   "model": "Model 0118",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 163,
+   "item": "Leather good 119",
+   "model": "Model 0119",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 164,
+   "item": "Leather good 120",
+   "model": "Model 0120",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 165,
+   "item": "Leather good 121",
+   "model": "Model 0117",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 166,
+   "item": "Leather good 122",
+   "model": "Model 0120",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 167,
+   "item": "Leather good 123",
+   "model": "Model 0117",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 168,
+   "item": "Travel piece 005",
+   "model": "Model 0121",
+   "type": "Prototype",
+   "category": "Luggage",
+   "difficulty": "Hard",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 6.0
+   },
+   "hoursToDoTotal": 6.0,
+   "readyToWork": true,
+   "currentStep": "Assembly",
+   "dataIssues": []
+  },
+  {
+   "id": 169,
+   "item": "Travel piece 006",
+   "model": "Model 0122",
+   "type": "Prototype",
+   "category": "Luggage",
+   "difficulty": "Hard",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 170,
+   "item": "Travel piece 007",
+   "model": "Model 0123",
+   "type": "Prototype",
+   "category": "Luggage",
+   "difficulty": "Hard",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 3.0,
+    "preparation": 5.0,
+    "assembly": 6.0
+   },
+   "hoursToDoTotal": 14.0,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 171,
+   "item": "Travel piece 008",
+   "model": "Model 0124",
+   "type": "Prototype",
+   "category": "Luggage",
+   "difficulty": "Hard",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 172,
+   "item": "Bag 041",
+   "model": "Model 0125",
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection D",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": false,
+   "currentStep": "Finished",
+   "dataIssues": [
+    "Assembled without accessories arrived"
+   ]
+  },
+  {
+   "id": 173,
+   "item": "Leather good 124",
+   "model": "Model 0126",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 174,
+   "item": "Leather good 125",
+   "model": "Model 0127",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 2.5,
+   "readyToWork": false,
+   "currentStep": "Waiting accessories",
+   "dataIssues": []
+  },
+  {
+   "id": 175,
+   "item": "Bag 042",
+   "model": "Model 0128",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 176,
+   "item": "Bag 043",
+   "model": "Model 0129",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 177,
+   "item": "Bag 044",
+   "model": "Model 0128",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 178,
+   "item": "Bag 045",
+   "model": "Model 0130",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-16",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 7.5,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 179,
+   "item": "Bag 046",
+   "model": "Model 0131",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": true,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 6.0,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": [
+    "Cut without materials arrived"
+   ]
+  },
+  {
+   "id": 180,
+   "item": "Bag 047",
+   "model": "Model 0130",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 7.5,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 181,
+   "item": "Bag 048",
+   "model": "Model 0131",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-16",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 7.5,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 182,
+   "item": "Leather good 126",
+   "model": "Model 0132",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 183,
+   "item": "Leather good 127",
+   "model": "Model 0133",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 184,
+   "item": "Leather good 128",
+   "model": "Model 0134",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 1.0,
+    "cutting": 1.0,
+    "preparation": 2.0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 6.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 185,
+   "item": "Bag 049",
+   "model": "Model 0131",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection C",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 7.5,
+   "readyToWork": false,
+   "currentStep": "Cutting",
+   "dataIssues": []
+  },
+  {
+   "id": 186,
+   "item": "Bag 050",
+   "model": "Model 0135",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection C",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": true,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 187,
+   "item": "Leather good 129",
+   "model": "Model 0136",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection C",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": true,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 188,
+   "item": "Travel piece 009",
+   "model": "Model 0137",
+   "type": "Prototype",
+   "category": "Luggage",
+   "difficulty": "Hard",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 6.0
+   },
+   "hoursToDoTotal": 6.0,
+   "readyToWork": true,
+   "currentStep": "Assembly",
+   "dataIssues": []
+  },
+  {
+   "id": 189,
+   "item": "Leather good 130",
+   "model": "Model 0138",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 190,
+   "item": "Bag 051",
+   "model": "Model 0139",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": true,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 191,
+   "item": "Bag 052",
+   "model": "Model 0140",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection C",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": true,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 192,
+   "item": "Leather good 131",
+   "model": "Model 0141",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 1.0,
+    "cutting": 1.0,
+    "preparation": 2.0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 6.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 193,
+   "item": "Travel piece 010",
+   "model": "Model 0142",
+   "type": "Sample",
+   "category": "Luggage",
+   "difficulty": "Hard",
+   "collection": "Collection B",
+   "delivery": "2026-01-09",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 4.5
+   },
+   "hoursToDoTotal": 4.5,
+   "readyToWork": true,
+   "currentStep": "Assembly",
+   "dataIssues": []
+  },
+  {
+   "id": 194,
+   "item": "Leather good 132",
+   "model": "Model 0143",
+   "type": "Prototype",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 1.0,
+    "cutting": 1.0,
+    "preparation": 2.0,
+    "assembly": 2.5
+   },
+   "hoursToDoTotal": 6.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 195,
+   "item": "Bag 053",
+   "model": "Model 0144",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-06",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 196,
+   "item": "Leather good 133",
+   "model": "Model 0145",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": true,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 197,
+   "item": "Leather good 134",
+   "model": "Model 0145",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-16",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": true,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 198,
+   "item": "Leather good 135",
+   "model": "Model 0145",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": true,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 199,
+   "item": "Leather good 136",
+   "model": "Model 0145",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-16",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": true,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 200,
+   "item": "Bag 054",
+   "model": "Model 0146",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 201,
+   "item": "Bag 055",
+   "model": "Model 0146",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 202,
+   "item": "Leather good 137",
+   "model": "Model 0147",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 203,
+   "item": "Leather good 138",
+   "model": "Model 0147",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 204,
+   "item": "Leather good 139",
+   "model": "Model 0147",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 205,
+   "item": "Leather good 140",
+   "model": "Model 0072",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-01",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": true
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 0
+   },
+   "hoursToDoTotal": 0,
+   "readyToWork": true,
+   "currentStep": "Finished",
+   "dataIssues": []
+  },
+  {
+   "id": 206,
+   "item": "Bag 056",
+   "model": "Model 0148",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 207,
+   "item": "Bag 057",
+   "model": "Model 0149",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 208,
+   "item": "Leather good 141",
+   "model": "Model 0150",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2026-01-09",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 209,
+   "item": "Leather good 142",
+   "model": "Model 0151",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2026-01-09",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 210,
+   "item": "Leather good 143",
+   "model": "Model 0152",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2026-01-09",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 211,
+   "item": "Leather good 144",
+   "model": "Model 0153",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection B",
+   "delivery": "2026-01-09",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 212,
+   "item": "Leather good 145",
+   "model": "Model 0147",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 213,
+   "item": "Leather good 146",
+   "model": "Model 0147",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 214,
+   "item": "Travel piece 011",
+   "model": "Model 0154",
+   "type": "Sample",
+   "category": "Luggage",
+   "difficulty": "Hard",
+   "collection": "Collection B",
+   "delivery": "2026-01-09",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.8,
+    "cutting": 2.3,
+    "preparation": 3.5,
+    "assembly": 4.5
+   },
+   "hoursToDoTotal": 13.1,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 215,
+   "item": "Bag 058",
+   "model": "Model 0155",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection C",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 216,
+   "item": "Bag 059",
+   "model": "Model 0156",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 217,
+   "item": "Bag 060",
+   "model": "Model 0156",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 218,
+   "item": "Bag 061",
+   "model": "Model 0156",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 219,
+   "item": "Bag 062",
+   "model": "Model 0157",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-16",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 220,
+   "item": "Bag 063",
+   "model": "Model 0157",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 221,
+   "item": "Bag 064",
+   "model": "Model 0158",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 222,
+   "item": "Bag 065",
+   "model": "Model 0159",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 223,
+   "item": "Bag 066",
+   "model": "Model 0160",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 224,
+   "item": "Leather good 147",
+   "model": "Model 0161",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 225,
+   "item": "Leather good 148",
+   "model": "Model 0162",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 226,
+   "item": "Bag 067",
+   "model": "Model 0163",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection C",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": true,
+    "accessoriesArrived": true,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 0,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 3.5,
+   "readyToWork": true,
+   "currentStep": "Assembly",
+   "dataIssues": []
+  },
+  {
+   "id": 227,
+   "item": "Bag 068",
+   "model": "Model 0164",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 228,
+   "item": "Bag 069",
+   "model": "Model 0165",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 229,
+   "item": "Bag 070",
+   "model": "Model 0166",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 230,
+   "item": "Leather good 149",
+   "model": "Model 0167",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 231,
+   "item": "Bag 071",
+   "model": "Model 0168",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 232,
+   "item": "Leather good 150",
+   "model": "Model 0169",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 233,
+   "item": "Travel piece 012",
+   "model": "Model 0170",
+   "type": "Prototype",
+   "category": "Luggage",
+   "difficulty": "Hard",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 3.5,
+    "cutting": 3.0,
+    "preparation": 5.0,
+    "assembly": 6.0
+   },
+   "hoursToDoTotal": 17.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 234,
+   "item": "Leather good 151",
+   "model": "Model 0171",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 235,
+   "item": "Leather good 152",
+   "model": "Model 0172",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 236,
+   "item": "Bag 072",
+   "model": "Model 0173",
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection C",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.5,
+    "cutting": 2.0,
+    "preparation": 4.0,
+    "assembly": 5.0
+   },
+   "hoursToDoTotal": 13.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 237,
+   "item": "Bag 073",
+   "model": "Model 0174",
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection C",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": true,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.5,
+    "cutting": 2.0,
+    "preparation": 4.0,
+    "assembly": 5.0
+   },
+   "hoursToDoTotal": 13.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 238,
+   "item": "Leather good 153",
+   "model": "Model 0175",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-16",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 239,
+   "item": "Leather good 154",
+   "model": "Model 0175",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 240,
+   "item": "Leather good 155",
+   "model": "Model 0175",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 241,
+   "item": "Leather good 156",
+   "model": "Model 0175",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-16",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 242,
+   "item": "Leather good 157",
+   "model": "Model 0176",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 243,
+   "item": "Bag 074",
+   "model": "Model 0177",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 244,
+   "item": "Bag 075",
+   "model": "Model 0178",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-06",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 245,
+   "item": "Leather good 158",
+   "model": "Model 0179",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 246,
+   "item": "Leather good 159",
+   "model": "Model 0180",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-16",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.1,
+   "readyToWork": false,
+   "currentStep": "Waiting materials",
+   "dataIssues": []
+  },
+  {
+   "id": 247,
+   "item": "Bag 076",
+   "model": "Model 0181",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 248,
+   "item": "Bag 077",
+   "model": "Model 0182",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 249,
+   "item": "Bag 078",
+   "model": "Model 0183",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 250,
+   "item": "Bag 079",
+   "model": "Model 0184",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 251,
+   "item": "Bag 080",
+   "model": "Model 0185",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 252,
+   "item": "Bag 081",
+   "model": "Model 0181",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-03",
+   "status": {
+    "cadDone": true,
+    "materialsArrived": true,
+    "cut": true,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0,
+    "cutting": 0,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 6.0,
+   "readyToWork": false,
+   "currentStep": "Preparation",
+   "dataIssues": []
+  },
+  {
+   "id": 253,
+   "item": "Leather good 160",
+   "model": "Model 0186",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 254,
+   "item": "Leather good 161",
+   "model": "Model 0186",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 255,
+   "item": "Leather good 162",
+   "model": "Model 0186",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": true,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.3,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": [
+    "Cut without CAD/DXF done",
+    "Cut without materials arrived"
+   ]
+  },
+  {
+   "id": 256,
+   "item": "Leather good 163",
+   "model": "Model 0187",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 257,
+   "item": "Leather good 164",
+   "model": "Model 0187",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-16",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 258,
+   "item": "Leather good 165",
+   "model": "Model 0187",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 259,
+   "item": "Leather good 166",
+   "model": "Model 0188",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 260,
+   "item": "Leather good 167",
+   "model": "Model 0188",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-16",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 261,
+   "item": "Leather good 168",
+   "model": "Model 0188",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 262,
+   "item": "Leather good 169",
+   "model": "Model 0189",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 263,
+   "item": "Leather good 170",
+   "model": "Model 0189",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 264,
+   "item": "Leather good 171",
+   "model": "Model 0189",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 265,
+   "item": "Leather good 172",
+   "model": "Model 0190",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 266,
+   "item": "Leather good 173",
+   "model": "Model 0191",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 267,
+   "item": "Leather good 174",
+   "model": "Model 0192",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 268,
+   "item": "Bag 082",
+   "model": "Model 0193",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 269,
+   "item": "Bag 083",
+   "model": "Model 0194",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 270,
+   "item": "Leather good 175",
+   "model": "Model 0195",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 271,
+   "item": "Leather good 176",
+   "model": "Model 0196",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 272,
+   "item": "Leather good 177",
+   "model": "Model 0197",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 273,
+   "item": "Leather good 178",
+   "model": "Model 0198",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 274,
+   "item": "Bag 084",
+   "model": "Model 0199",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 275,
+   "item": "Travel piece 013",
+   "model": "Model 0200",
+   "type": "Prototype",
+   "category": "Luggage",
+   "difficulty": "Hard",
+   "collection": "Collection B",
+   "delivery": "2025-12-08",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 3.5,
+    "cutting": 3.0,
+    "preparation": 5.0,
+    "assembly": 6.0
+   },
+   "hoursToDoTotal": 17.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 276,
+   "item": "Bag 085",
+   "model": "Model 0201",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 277,
+   "item": "Leather good 179",
+   "model": "Model 0202",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 278,
+   "item": "Leather good 180",
+   "model": "Model 0203",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 279,
+   "item": "Bag 086",
+   "model": "Model 0204",
+   "type": "Prototype",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-11",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.5,
+    "cutting": 2.0,
+    "preparation": 4.0,
+    "assembly": 5.0
+   },
+   "hoursToDoTotal": 13.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 280,
+   "item": "Leather good 181",
+   "model": "Model 0205",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 281,
+   "item": "Leather good 182",
+   "model": "Model 0205",
+   "type": "Sample",
+   "category": "Small leather goods",
+   "difficulty": "Easy",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 0.8,
+    "cutting": 0.6,
+    "preparation": 1.5,
+    "assembly": 2.0
+   },
+   "hoursToDoTotal": 4.9,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  },
+  {
+   "id": 282,
+   "item": "Bag 087",
+   "model": "Model 0206",
+   "type": "Sample",
+   "category": "Bags",
+   "difficulty": "Medium",
+   "collection": "Collection A",
+   "delivery": "2025-12-10",
+   "status": {
+    "cadDone": false,
+    "materialsArrived": false,
+    "cut": false,
+    "prepared": false,
+    "accessoriesArrived": false,
+    "assembled": false
+   },
+   "hoursToDo": {
+    "cad": 2.0,
+    "cutting": 1.5,
+    "preparation": 2.5,
+    "assembly": 3.5
+   },
+   "hoursToDoTotal": 9.5,
+   "readyToWork": false,
+   "currentStep": "CAD / DXF",
+   "dataIssues": []
+  }
+ ]
+}

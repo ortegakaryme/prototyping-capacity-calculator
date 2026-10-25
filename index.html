@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prototyping Capacity</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="topbar" id="topbar"></header>
+
+  <main class="wrap">
+    <!-- 1. What this page is about, and the team that does the work -->
+    <section class="hero" id="hero" aria-live="polite"></section>
+
+    <!-- 2. Pick a delivery: stays at the top while scrolling -->
+    <nav class="selector" id="selector" aria-label="Choose a delivery"></nav>
+
+    <!-- 3. The selected delivery: sentence, options, progress, capacity per station, open pieces -->
+    <section class="focus" id="focus" aria-live="polite">
+      <div id="focus-head"></div>
+      <div class="kpis" id="kpis"></div>
+      <div class="focus-grid">
+        <div class="panel" id="progress"></div>
+        <div class="panel">
+          <div class="panel-head">
+            <h3 class="panel-title">Can the team make it?</h3>
+            <p class="small muted" id="cap-sub"></p>
+          </div>
+          <div class="sbars" id="sbars"></div>
+          <p class="small muted" id="cap-foot"></p>
+        </div>
+      </div>
+      <div id="pieces"></div>
+    </section>
+
+    <!-- 4. Every delivery at a glance -->
+    <section class="block" id="overview" aria-label="All deliveries"></section>
+
+    <!-- 5. Simulator: team per station, overtime, move a date -->
+    <section class="block" id="simulator" aria-label="Plan the team">
+      <div class="block-head"><span class="section">Plan the team</span><span class="label muted">Draft · nothing is saved</span></div>
+      <h2 class="sim-title">Try a change before you make it.</h2>
+      <p class="lead">Add or remove people per station, add overtime, or move a delivery. Every number on the page updates at once. Reset brings back today's plan.</p>
+      <div class="sim-grid">
+        <div>
+          <div class="stations" id="stations"></div>
+          <div class="move" id="move"></div>
+        </div>
+        <aside class="preview" id="preview" aria-live="polite"></aside>
+      </div>
+    </section>
+
+    <!-- 6. How to read the page + data notes -->
+    <section class="block" id="notes" aria-label="How to read this page and data notes"></section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
