@@ -35,12 +35,40 @@ export function createLine(data) {
     if (stage === 'accessories') p.arriveAt = between(LEAD.accessoriesNow, rand(i.id * 7));
     return p;
   });
-  const line = {
-    data, pieces, t: 0, events: [], days: [data.config.today],
-    workers: Object.fromEntries(STEPS.map((s) => [s, Array.from({ length: data.config.people[s] }, () => ({ piece: null, absent: null }))])),
-  };
+  const line = { data, pieces, t: 0, events: [], days: [data.config.today], hired: {}, workers: {}, daylog: [] };
+  for (const s of STEPS) line.workers[s] = Array.from({ length: data.config.people[s] }, () => artisan(line, s));
   for (const p of pieces) settle(line, p);
+  line.daylog.push({ day: data.config.today, start: capture(line), end: null });
   return line;
+}
+
+// ---------- artisans: each one signs off the steps they finish ----------
+// In the PLM a step was closed with a 0/1 flag by whoever ticked it. Here every step is signed by the artisan
+// who worked it, with the time, so output can be credited fairly in standard hours (not pieces).
+export const CODE = { cad: 'CAD', cutting: 'CUT', preparation: 'PREP', assembly: 'ASM' };
+function artisan(line, s) {
+  const n = (line.hired[s] = (line.hired[s] || 0) + 1);
+  const id = `${CODE[s]}-${n}`;
+  // Simulated pace around the standard (0.85–1.15): real data would come from the sign-off times.
+  const speed = Math.round((0.85 + 0.3 * rand(n * 101 + STEPS.indexOf(s) * 7)) * 100) / 100;
+  return { id, speed, piece: null, absent: null, inHours: 0, busyHours: 0, signed: 0, earned: 0 };
+}
+
+// ---------- start and end of each working day ----------
+export function capture(line) {
+  const stages = Object.fromEntries(STAGES.map((x) => [x, 0]));
+  const left = Object.fromEntries(STEPS.map((s) => [s, 0]));
+  const deliveries = {};
+  for (const p of line.pieces) {
+    stages[p.stage]++;
+    for (const s of STEPS) left[s] += Math.max(0, p.left[s]);
+    const d = (deliveries[p.delivery] ||= { items: 0, finished: 0 });
+    d.items++;
+    if (p.stage === 'done') d.finished++;
+  }
+  const artisans = {};
+  for (const s of STEPS) for (const w of line.workers[s]) artisans[w.id] = { signed: w.signed, earned: w.earned, inHours: w.inHours };
+  return { t: line.t, stages, left, deliveries, artisans };
 }
 
 // ---------- clock: t counts working hours since the snapshot (08:00 of the cut-off day) ----------
@@ -69,7 +97,7 @@ function settle(line, p) {
   }
 }
 
-function advance(line, p, announce = true) {
+function advance(line, p, announce = true, by = null) {
   const from = p.stage;
   if (STEPS.includes(from)) p.left[from] = 0;
   const next = STAGES[STAGES.indexOf(from) + 1];
@@ -80,9 +108,9 @@ function advance(line, p, announce = true) {
   p.stage = next;
   if (next === 'done') {
     p.doneAt = line.t;
-    if (announce) log(line, 'done', `${p.name} finished`, { piece: p.id, delivery: p.delivery });
+    if (announce) log(line, 'done', `${p.name} finished${by ? ` · signed ${by}` : ''}`, { piece: p.id, delivery: p.delivery, station: from, by });
   } else if (announce && STEPS.includes(from)) {
-    log(line, 'step', `${p.name} · ${label(line, from)} done`, { piece: p.id, station: from });
+    log(line, 'step', `${p.name} · ${label(line, from)} done${by ? ` · signed ${by}` : ''}`, { piece: p.id, station: from, by });
   }
   if (STEPS.includes(next) && p.left[next] <= 1e-9) advance(line, p, false);
 }
@@ -112,29 +140,37 @@ export function tick(line, dt) {
           log(line, 'team', `${label(line, s)}: ${w.absent.who} is back`);
           w.absent = null;
         }
+        w.inHours += h;
         if (w.piece === null) {
           const next = queueOf(line, s)[0];
           if (!next) continue;
           w.piece = next.id; next.worker = `${s}:${k}`;
         }
         const p = line.pieces[w.piece - 1];
-        p.left[s] -= h;
+        w.busyHours += h;
+        p.left[s] -= h * w.speed;
         if (p.left[s] <= 1e-9) {
           p.worker = null; w.piece = null;
-          advance(line, p);
+          w.signed++; w.earned += p.std[s];
+          advance(line, p, true, w.id);
         }
       }
     }
     const day = Math.floor(line.t / DAY_HOURS + 1e-9);
     line.t += h;
-    if (Math.floor(line.t / DAY_HOURS + 1e-9) > day) log(line, 'day', `New working day · ${dayOf(line)}`);
+    if (Math.floor(line.t / DAY_HOURS + 1e-9) > day) {
+      const snap = capture(line);
+      line.daylog[line.daylog.length - 1].end = snap;
+      line.daylog.push({ day: dayOf(line), start: snap, end: null });
+      log(line, 'day', `New working day · ${dayOf(line)}`);
+    }
   }
 }
 
 // Change the team of a station while the line runs. A person who leaves puts the piece back in the queue.
 export function setPeople(line, s, n) {
   const ws = line.workers[s];
-  while (ws.length < n) ws.push({ piece: null, absent: null });
+  while (ws.length < n) ws.push(artisan(line, s));
   while (ws.length > n) {
     const w = ws.pop();
     if (w.piece !== null) line.pieces[w.piece - 1].worker = null;
@@ -153,8 +189,7 @@ export function reportAbsence(line, s, days, reason) {
   const w = [...ws].reverse().find((x) => !x.absent && x.piece === null) || [...ws].reverse().find((x) => !x.absent);
   if (!w) return false;
   if (w.piece !== null) { line.pieces[w.piece - 1].worker = null; w.piece = null; }
-  const n = ws.indexOf(w) + 1;
-  w.absent = { who: `Artisan ${n}`, reason, from: line.t, until: startOfDay(line.t) + days * DAY_HOURS };
+  w.absent = { who: w.id, reason, from: line.t, until: startOfDay(line.t) + days * DAY_HOURS };
   log(line, 'alert', `${label(line, s)}: ${w.absent.who} ${reason.toLowerCase()} · out ${days === 1 ? 'today' : `${days} working days`}`);
   return true;
 }

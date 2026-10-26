@@ -374,3 +374,33 @@ button.orow:hover { background: var(--paper-2); }
   .mix-bar { grid-column: 1 / -1; }
   .cond-form .btn { width: 100%; }
 }
+
+/* Live line v3: decide today, day report, team sign-offs */
+.decide { margin-top: var(--s-6); border-top: 1px solid var(--rule-strong); padding-top: var(--s-4); }
+.decide-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-3); margin-top: var(--s-4); }
+.dcard { border: 1px solid var(--rule); border-top: 3px solid var(--st-green); padding: var(--s-4); display: flex; flex-direction: column; gap: var(--s-2); }
+.dcard.is-warn { border-top-color: var(--st-amber); }
+.dcard.is-bad { border-top-color: var(--st-red); }
+.dcard-top { display: flex; justify-content: space-between; align-items: center; gap: var(--s-2); flex-wrap: wrap; }
+.dcard-act { font: var(--t-body); color: var(--ink); }
+.missing { margin-top: var(--s-4); }
+.mlist { display: flex; flex-wrap: wrap; gap: 4px var(--s-4); margin: var(--s-2) 0 0; padding: 0; list-style: none; font: var(--t-small); }
+.day-chips { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-4); }
+.day-chips .chip { min-width: 120px; }
+.day-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-7); margin-top: var(--s-5); }
+.drow { display: grid; grid-template-columns: minmax(0, 1fr) auto 64px; gap: var(--s-3); align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--rule); font: var(--t-small); color: var(--ink-2); }
+.drow > :last-child { text-align: right; }
+.day-grid .label { margin-bottom: var(--s-2); }
+.dlt { font-weight: 500; }
+.dlt.is-up { color: var(--ink); }
+.dlt.is-down { color: var(--ink-3); }
+.dl { font: 500 11px/16px var(--font-text); letter-spacing: 0.06em; white-space: nowrap; }
+.ttable { margin-top: var(--s-5); border-top: 1px solid var(--rule-strong); }
+.trow { display: grid; grid-template-columns: 1.4fr 1.4fr repeat(5, minmax(0, 0.8fr)); gap: var(--s-3); align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--rule); font: var(--t-body); color: var(--ink-2); }
+.trow .r { text-align: right; }
+.thead { padding-top: var(--s-3); }
+@media (max-width: 1100px) {
+  .decide-grid, .day-grid { grid-template-columns: 1fr; gap: var(--s-4); }
+  .trow { grid-template-columns: 1fr auto auto; }
+  .trow > :nth-child(2), .trow > :nth-child(4), .trow > :nth-child(5), .trow > :nth-child(7) { display: none; }
+}

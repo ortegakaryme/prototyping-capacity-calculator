@@ -1,7 +1,7 @@
 import { computePlan, pct, STEPS } from './engine.js';
 import {
   createLine, tick, dayOf, clockOf, queueOf, setPeople, snapshot, DAY_HOURS,
-  present, absences, reportAbsence, clearAbsences, absentHours,
+  present, absences, reportAbsence, clearAbsences, absentHours, capture, STAGES,
 } from './live-sim.js';
 
 // Live line tab: the workshop as it runs, station by station, as if the page were connected to the PLM.
@@ -14,6 +14,9 @@ const FEED = 12;        // events shown
 const PAINT_MS = 250;   // repaint at most 4 times a second
 const DURATIONS = [{ days: 1, label: 'Today' }, { days: 2, label: '2 days' }, { days: 5, label: '1 week' }];
 const REASONS = ['Sick', 'On holiday', 'In training'];
+const MAX_OVERTIME = 4;  // h per person per day, same limit as the overview
+const DECIDE = 4;        // open deliveries shown in "Decide today"
+const STAGE_LABEL = { cad: 'CAD / DXF', materials: 'Waiting for materials', cutting: 'Cutting', preparation: 'Preparation', accessories: 'Waiting for accessories', assembly: 'Assembly', done: 'Finished' };
 const CATEGORY = { Bags: 'Bags', 'Small leather goods': 'Small leather goods', Luggage: 'Luggage', Belts: 'Belts' };
 
 const $ = (id) => document.getElementById(id);
@@ -29,7 +32,7 @@ const WAIT = { materials: 'Waiting for materials', accessories: 'Waiting for acc
 const isRisk = (light) => light === 'RED' || light === 'LATE';
 
 let data, labels, line, plan, normal;
-const live = { playing: false, speed: 600, last: 0, painted: 0, built: false, alerts: new Set(), lights: new Map() };
+const live = { playing: false, speed: 600, last: 0, painted: 0, built: false, alerts: new Set(), lights: new Map(), days: 0, daySel: null };
 
 // ---------- tabs ----------
 function showTab() {
@@ -66,6 +69,8 @@ function restart() {
   live.alerts.clear(); live.lights.clear();
   forecast();
   for (const d of plan.deliveries) live.lights.set(d.originalDate, d.trafficLight);
+  live.days = 0; live.daySel = null; live.dayChips = null;
+  markDay();
   if (live.built) { paintPeople(); paint(true); }
 }
 
@@ -110,9 +115,20 @@ const risky = () => new Set(plan.deliveries.filter((d) => isRisk(d.trafficLight)
 const daysTone = (d) => (d > 3 ? 'is-red' : d > 1.5 ? 'is-amber' : '');
 const daysText = (d) => (Number.isFinite(d) ? `${d.toFixed(1)} days` : 'nobody in');
 
+// Delivery states at the start of each day (and so at the end of the day before), for the day report.
+const lightsNow = () => Object.fromEntries(plan.deliveries.map((d) => [d.originalDate, d.trafficLight]));
+function markDay() {
+  const log = line.daylog;
+  if (live.days === log.length) return;
+  if (log.length > 1) log[log.length - 2].endLights = lightsNow();
+  log[log.length - 1].startLights = lightsNow();
+  live.days = log.length;
+}
+
 // Alerts a supervisor would want pushed, each said once until the situation changes.
 function watch() {
   forecast();
+  markDay();
   for (const d of plan.deliveries) {
     const was = live.lights.get(d.originalDate);
     if (was && was !== d.trafficLight) {
@@ -175,6 +191,12 @@ function build() {
     </section>
     <div class="kpis" id="live-kpis"></div>
 
+    <section class="decide" aria-label="Decide today">
+      <div class="block-head"><span class="section">Decide today</span><span class="label muted">For the area manager · next open deliveries</span></div>
+      <div class="decide-grid" id="decide"></div>
+      <div class="missing" id="missing"></div>
+    </section>
+
     <section class="cond" id="cond" aria-label="Conditions today">
       <div class="cond-state" id="cond-state" aria-live="polite"></div>
       <div class="cond-form">
@@ -202,6 +224,24 @@ function build() {
       <p class="small muted lkey"><i class="pi is-busy"></i> working <i class="pi is-idle"></i> free, no piece ready <i class="pi is-absent"></i> absent <span class="sqk is-risk"></span> piece of a delivery at risk <span class="sqk"></span> other piece</p>
     </section>
 
+    <section class="block day" aria-label="Day report">
+      <div class="block-head"><span class="section">Day report · start vs end of day</span><span class="label muted">A snapshot is taken at 08:00 and 17:00</span></div>
+      <nav class="chips day-chips" id="day-chips" aria-label="Choose a day"></nav>
+      <h2 class="sim-title" id="day-title"></h2>
+      <div class="day-grid">
+        <div><p class="label muted">Where the pieces are</p><div id="day-stages"></div></div>
+        <div><p class="label muted">Work done per station</p><div id="day-stations"></div></div>
+        <div><p class="label muted">Deliveries</p><div id="day-del"></div></div>
+      </div>
+    </section>
+
+    <section class="block team" aria-label="Team output">
+      <div class="block-head"><span class="section">Team · who signed off what</span><span class="label muted">Each finished step is signed by the artisan who worked it</span></div>
+      <p class="lead">In the PLM a step was closed with a 0/1 flag, and the credit went to whoever ticked it. Here every step carries the artisan, the start and the finish, so output is counted in standard hours, not in pieces: a hard bag counts more than an easy wallet.</p>
+      <div class="ttable" id="team"></div>
+      <p class="small muted footnote">Pace = standard hours signed ÷ hours working on pieces (100% = the standard). Busy = hours on a piece ÷ hours in; time waiting for materials does not count against anyone. In this demo each artisan's pace is simulated.</p>
+    </section>
+
     <section class="block mix" aria-label="What is on the line">
       <div class="block-head"><span class="section">What is on the line</span><span class="label muted">Same ${data.items.length} pieces as the overview</span></div>
       <h2 class="sim-title" id="mix-title"></h2>
@@ -225,6 +265,7 @@ function build() {
         <p>In this demo the feed is simulated: it starts from the PLM snapshot and each artisan works the next piece of their station, earliest delivery first, for its standard hours. Material and accessory arrivals are assumed (half a day to four days).</p>
         <p>Normal conditions means every artisan is in. Report an absence and that person's bench stops: their piece goes back to the queue, the station loses those hours, and the forecast shows which deliveries change.</p>
         <p>Use + and − to add or remove a bench while the line runs. Next step with real data: attendance from the HR system and measured times per piece instead of standard ones.</p>
+        <p>Individual output is a sensitive measure. In Italy, tools that can monitor workers need an agreement with the unions (Workers' Statute, art. 4) and must respect privacy rules. Use it to balance stations, plan training and fix the standards, not to rank people in public.</p>
       </div>
     </section>`;
   paintPeople();
@@ -257,17 +298,17 @@ function squares(ps, risk) {
 function bench(s, w, k, risk) {
   if (w.absent) {
     return `<div class="bench is-absent"><i class="pi is-absent"></i><div class="desk">
-      <span class="desk-top"><span>Artisan ${k + 1}</span><span class="small">${esc(w.absent.reason)}</span></span>
+      <span class="desk-top"><span>${esc(w.id)}</span><span class="small">${esc(w.absent.reason)}</span></span>
       <span class="small muted">Back ${wdm(dayOf(line, w.absent.until))}</span></div></div>`;
   }
   if (w.piece === null) {
     return `<div class="bench is-idle"><i class="pi is-idle"></i><div class="desk">
-      <span class="desk-top"><span class="muted">Artisan ${k + 1}</span></span><span class="small muted">Free · no piece ready</span></div></div>`;
+      <span class="desk-top"><span class="muted">${esc(w.id)}</span></span><span class="small muted">Free · no piece ready</span></div></div>`;
   }
   const p = line.pieces[w.piece - 1];
   const done = p.std[s] > 0 ? Math.min(1, 1 - p.left[s] / p.std[s]) : 1;
   return `<div class="bench is-busy ${risk.has(p.delivery) ? 'is-risk' : ''}"><i class="pi is-busy"></i><div class="desk">
-    <span class="desk-top"><span class="ink">${esc(p.name)}</span><span class="small muted num">${dm(p.delivery)}</span></span>
+    <span class="desk-top"><span class="ink">${esc(p.name)}</span><span class="small muted num">${esc(w.id)} · ${dm(p.delivery)}</span></span>
     <span class="lprog"><i style="width:${Math.round(done * 100)}%"></i></span></div></div>`;
 }
 
@@ -323,6 +364,100 @@ function paintMix() {
   }).join('');
 }
 
+// ---------- decide today: what the area manager has to do for the next deliveries ----------
+// Overtime per person per day that closes each station's gap with the people in today; if it is above
+// the limit, how many people it would take instead.
+function actionFor(d) {
+  if (d.trafficLight === 'LATE') return { tone: 'is-bad', text: `Date passed with ${plural(d.items - d.finished, 'piece')} open. Agree a new date with the client.` };
+  if (d.trafficLight === 'GREEN') return { tone: '', text: `On track. ${labels[d.bottleneck]} is the busiest at ${pct(d.maxUsage)}%. No overtime needed.` };
+  if (d.trafficLight === 'AMBER') return { tone: 'is-warn', text: `Tight, but no hours missing. Watch ${labels[d.bottleneck]} (${pct(d.maxUsage)}%): one absence could tip it.` };
+  const days = d.workingDaysLeft;
+  const short = STEPS.filter((s) => d.missingHours[s] > 0);
+  const needs = short.map((s) => {
+    const ppl = present(line, s);
+    const ot = days && ppl ? d.missingHours[s] / (days * ppl) : Infinity;
+    return { s, ppl, ot, extra: days ? Math.ceil(d.missingHours[s] / (days * DAY_HOURS)) : Infinity, hours: d.missingHours[s] };
+  });
+  const fits = needs.filter((x) => x.ot <= MAX_OVERTIME), over = needs.filter((x) => x.ot > MAX_OVERTIME);
+  const parts = [];
+  if (fits.length) parts.push(`Overtime: ${fits.map((x) => `${labels[x.s]} ${(Math.ceil(x.ot * 2) / 2).toFixed(1)} h a day for each of ${plural(x.ppl, 'person', 'people')}`).join(', ')}, for ${plural(days, 'day')}.`);
+  if (over.length) parts.push(`Overtime is not enough in ${over.map((x) => labels[x.s]).join(' and ')} (${over.map((x) => Number.isFinite(x.ot) ? `${x.ot.toFixed(1)} h a day` : 'no time left').join(', ')}): ${over.map((x) => Number.isFinite(x.extra) ? `+${plural(x.extra, 'person', 'people')} in ${labels[x.s]}` : `move ${labels[x.s]} work`).join(', ')}, or move the date.`);
+  return { tone: 'is-bad', text: `${Math.round(d.missingHoursTotal)} h missing. ${parts.join(' ')}`, total: fits.reduce((t, x) => t + x.hours, 0) };
+}
+
+function paintDecide() {
+  const open = plan.deliveries.filter((d) => d.trafficLight !== 'DONE').slice(0, DECIDE);
+  $('decide').innerHTML = open.map((d) => {
+    const a = actionFor(d);
+    return `<article class="dcard ${a.tone}">
+      <div class="dcard-top"><span class="ink strong num">${wdm(d.date)}</span>${stateTag(d.trafficLight)}</div>
+      <p class="small muted">${d.finished} of ${d.items} finished · ${plural(d.workingDaysLeft, 'working day')} left</p>
+      <p class="dcard-act">${esc(a.text)}</p>
+    </article>`;
+  }).join('') || '<p class="small muted">Every delivery is finished.</p>';
+  // What is missing for the next delivery, and where it is stuck.
+  const next = open[0];
+  if (!next) { $('missing').innerHTML = ''; return; }
+  const ps = line.pieces.filter((p) => p.delivery === next.originalDate && p.stage !== 'done');
+  const by = STAGES.filter((x) => x !== 'done').map((x) => [x, ps.filter((p) => p.stage === x)]).filter(([, l]) => l.length);
+  $('missing').innerHTML = ps.length ? `
+    <p class="small"><span class="ink strong">Missing for ${wdm(next.date)}: ${plural(ps.length, 'piece')}.</span> ${by.map(([x, l]) => `${l.length} ${x === 'materials' || x === 'accessories' ? STAGE_LABEL[x].toLowerCase() : `in ${STAGE_LABEL[x]}`}`).join(' · ')}</p>
+    <ul class="mlist">${ps.slice(0, 12).map((p) => `<li><span class="ink">${esc(p.name)}</span> <span class="muted">${esc(STAGE_LABEL[p.stage])}${p.worker ? ' · in work' : ''}</span></li>`).join('')}${ps.length > 12 ? `<li class="muted">+${ps.length - 12} more</li>` : ''}</ul>` : '';
+}
+
+// ---------- day report: snapshot at the start of the day against the end (or now, for today) ----------
+function paintDay() {
+  const log = line.daylog;
+  const k = live.daySel === null ? log.length - 1 : Math.min(live.daySel, log.length - 1);
+  const entry = log[k], isToday = k === log.length - 1;
+  const start = entry.start, end = entry.end || capture(line);
+  const endLights = entry.endLights || lightsNow();
+  // Rebuilt only when a day is added or picked, so a click is never lost to a repaint.
+  const key = `${log.length}:${k}`;
+  if (live.dayChips !== key) {
+    live.dayChips = key;
+    $('day-chips').innerHTML = log.map((e, j) => `<button class="chip ${j === k ? 'is-selected' : ''}" data-day="${j}"><span class="chip-date">${j === log.length - 1 ? 'Today' : wdm(e.day)}</span><span class="chip-meta">${j === log.length - 1 ? 'so far' : '08:00 → 17:00'}</span></button>`).join('');
+  }
+  const finished = end.stages.done - start.stages.done;
+  const hours = STEPS.reduce((t, s) => t + (start.left[s] - end.left[s]), 0);
+  $('day-title').innerHTML = `${isToday ? 'Today so far' : wdm(entry.day)}: ${plural(finished, 'piece')} finished, ${Math.round(hours)} h of work done. <span class="cause">${isToday ? `Start of day at 08:00 compared with now, ${clockOf(line.t)}.` : 'Start of day at 08:00 compared with the end at 17:00.'}</span>`;
+  const delta = (n) => (n > 0 ? `<span class="dlt is-up">+${n}</span>` : n < 0 ? `<span class="dlt is-down">−${-n}</span>` : '<span class="dlt muted">=</span>');
+  $('day-stages').innerHTML = STAGES.map((x) => `<div class="drow"><span>${STAGE_LABEL[x]}</span><span class="num muted">${start.stages[x]} → <span class="ink">${end.stages[x]}</span></span>${delta(end.stages[x] - start.stages[x])}</div>`).join('');
+  $('day-stations').innerHTML = STEPS.map((s) => {
+    const done = start.left[s] - end.left[s];
+    const ids = line.workers[s].map((w) => w.id);
+    const inH = ids.reduce((t, id) => t + ((end.artisans[id]?.inHours || 0) - (start.artisans[id]?.inHours || 0)), 0);
+    return `<div class="drow"><span>${esc(labels[s])}</span><span class="num ink">${Math.round(done)} h</span><span class="small muted num">of ${Math.round(inH)} h in</span></div>`;
+  }).join('');
+  $('day-del').innerHTML = plan.deliveries.filter((d) => start.deliveries[d.originalDate]).map((d) => {
+    const a = start.deliveries[d.originalDate], b = end.deliveries[d.originalDate];
+    const la = entry.startLights?.[d.originalDate], lb = endLights[d.originalDate];
+    return `<div class="drow"><span class="num">${dm(d.originalDate)}</span><span class="num muted">${a.finished} → <span class="ink">${b.finished}</span>/${b.items}</span>${la && lb && la !== lb ? `<span class="dl"><span class="st-text" data-light="${la}">${la}</span> → <span class="st-text" data-light="${lb}">${lb}</span></span>` : `<span class="small st-text" data-light="${lb}">${lb || ''}</span>`}</div>`;
+  }).join('');
+}
+
+// ---------- team: sign-offs per artisan ----------
+function paintTeam() {
+  const startToday = line.daylog[line.daylog.length - 1].start.artisans;
+  const rows = STEPS.flatMap((s) => line.workers[s].map((w) => ({ s, w, today: w.signed - (startToday[w.id]?.signed || 0) })));
+  // Standard hours signed plus the part of the piece on the bench already done, over the hours spent on pieces.
+  const pace = (w, s) => {
+    if (w.busyHours < 0.25) return null;
+    const p = w.piece !== null ? line.pieces[w.piece - 1] : null;
+    return (w.earned + (p ? Math.max(0, p.std[s] - p.left[s]) : 0)) / w.busyHours;
+  };
+  $('team').innerHTML = `
+    <div class="trow thead label muted"><span>Artisan</span><span>Now</span><span class="r">Signed today</span><span class="r">Signed in total</span><span class="r">Standard hours</span><span class="r">Pace</span><span class="r">Busy</span></div>
+    ${rows.map(({ s, w, today }) => {
+      const pc = pace(w, s), busy = w.inHours > 0.25 ? w.busyHours / w.inHours : null;
+      const now = w.absent ? `<span class="st-absent">${esc(w.absent.reason)}</span>` : w.piece !== null ? esc(line.pieces[w.piece - 1].name) : '<span class="muted">Free</span>';
+      return `<div class="trow"><span><span class="ink strong">${esc(w.id)}</span> <span class="small muted">${esc(labels[s])}</span></span><span class="small">${now}</span>
+        <span class="r num">${today}</span><span class="r num">${w.signed}</span><span class="r num">${w.earned.toFixed(1)} h</span>
+        <span class="r num ${pc === null ? 'muted' : pc < 0.9 ? 'is-amber' : 'ink'}">${pc === null ? '—' : `${Math.round(pc * 100)}%`}</span>
+        <span class="r num muted">${busy === null ? '—' : `${Math.round(busy * 100)}%`}</span></div>`;
+    }).join('')}`;
+}
+
 function paint(full = false) {
   live.painted = performance.now();
   if (full) paintControls();
@@ -373,6 +508,9 @@ function paint(full = false) {
   }
   $('lw-body-done').innerHTML = `<span class="lw-n num">${done}</span><span class="small muted">${plural(finishedToday, 'piece')} today</span>`;
   paintMix();
+  paintDecide();
+  paintDay();
+  paintTeam();
 
   $('live-feed').innerHTML = line.events.slice(-FEED).reverse().map((e) => `
     <li class="fe fe-${e.kind}"><span class="num muted">${e.kind === 'day' ? '' : `${wdm(dayOf(line, e.t))} ${clockOf(e.t)}`}</span><span>${esc(e.text)}</span></li>`).join('') || '<li class="small muted">The line just started. Events appear here.</li>';
@@ -395,6 +533,7 @@ document.addEventListener('click', (e) => {
   if (t.dataset.live === 'toggle') play(!live.playing);
   else if (t.dataset.live === 'restart') restart();
   else if (t.dataset.liveSpeed) { live.speed = Number(t.dataset.liveSpeed); paintControls(); }
+  else if (t.dataset.day) { live.daySel = Number(t.dataset.day) === line.daylog.length - 1 ? null : Number(t.dataset.day); paintDay(); }
   else if (t.dataset.absDays) {
     absDays = Number(t.dataset.absDays);
     document.querySelectorAll('[data-abs-days]').forEach((b) => { b.classList.toggle('is-on', b === t); b.setAttribute('aria-pressed', String(b === t)); });
