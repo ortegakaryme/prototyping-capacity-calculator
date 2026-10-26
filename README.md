@@ -22,6 +22,7 @@ A decision tool for a luxury leather goods prototyping workshop in Florence, whe
 - **Selected delivery:** a plain-language sentence (*"Monday 8 December is at risk. Assembly is 37 hours short. Add one person to Assembly, or move the date."*), key figures, where the pieces are today, and work vs. available hours per station.
 - **All deliveries** at a glance.
 - **Plan the team:** add or remove people, add overtime or move a delivery, and see every number update at once.
+- **Live line (second tab):** the workshop as it runs, as if the page were connected to the PLM. A clock moves every piece through the stations; each card shows who is working on what, the queue in pieces, hours and days of work, and the pieces of at-risk deliveries in red. A feed lists each status change and pushes alerts (a queue above 3 days, a delivery turning red, people with no piece ready), and the delivery forecast is recalculated with every change. People can be moved between stations while the line runs.
 
 Key finding on the 28 Nov 2025 data: the 10 December delivery (124 pieces) needed 1,120 h with 704 h available. That is 455 h short across three stations, flagged almost two weeks in advance.
 
@@ -32,6 +33,9 @@ Key finding on the 28 Nov 2025 data: the 10 December delivery (124 pieces) neede
 - **Options:** extra people per station, overtime per person, and the earliest date that removes the risk.
 
 Assumptions are shown on the page: stations are assumed to work in parallel (so the real risk is higher), and extra people are assumed to be trained and available at once.
+
+## The live line and the PLM
+Each status change in the PLM (pattern done, materials in, cut, prepared, accessories in, assembled) is an event. Connected, the page would receive those events and update in seconds. In this demo the feed is **simulated**: it starts from the PLM snapshot and each person works the next piece of their station, earliest delivery first, for its standard hours. Material and accessory arrivals are assumed (half a day to four days), as the download has no supplier dates. The forecast uses the same engine as the overview.
 
 ## Run it locally
 No installation needed.
@@ -47,11 +51,12 @@ Then open http://localhost:8000. Engine tests (Node 18+): `node --test tests/`.
 |---|---|
 | `index.html`, `app.js`, `app.css`, `tokens.css` | The interface |
 | `engine.js` | Calculation engine, pure functions, also runs in Node |
+| `live-sim.js`, `live.js` | Live line: simulated PLM feed (pure) and its tab |
 | `data/demo-data.json` | Anonymized workshop data |
 | `tests/engine.test.mjs` | Checks the engine against the precomputed deliveries |
 
 ## Next steps
 - Simulate day by day with the real sequence of stations and material arrivals.
 - Suggest the order of work per station.
-- Read the PLM directly and send alerts when a delivery turns red.
+- Replace the simulated feed with the PLM events and send the alerts by email or chat.
 - Replace estimated standard times with measured ones.

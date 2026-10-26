@@ -533,7 +533,7 @@ document.addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => {
-  if (!['ArrowLeft', 'ArrowRight'].includes(e.key) || e.target.closest('input, select, textarea')) return;
+  if (!['ArrowLeft', 'ArrowRight'].includes(e.key) || e.target.closest('input, select, textarea') || $('view-overview').hidden) return;
   const order = computePlan(data, sc()).deliveries.map((d) => d.originalDate);
   const k = order.indexOf(state.selected) + (e.key === 'ArrowRight' ? 1 : -1);
   if (k < 0 || k >= order.length) return;

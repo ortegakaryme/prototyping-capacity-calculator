@@ -10,7 +10,13 @@
 <body>
   <header class="topbar" id="topbar"></header>
 
-  <main class="wrap">
+  <!-- Two views: the overview of every delivery, and the line as it runs (live.js) -->
+  <nav class="tabs" aria-label="Views">
+    <a class="tab" href="#overview" data-tab="overview" aria-current="page">Overview</a>
+    <a class="tab" href="#live" data-tab="live"><span class="live-dot" aria-hidden="true"></span>Live line</a>
+  </nav>
+
+  <main class="wrap" id="view-overview">
     <!-- 1. What this page is about, and the team that does the work -->
     <section class="hero" id="hero" aria-live="polite"></section>
 
@@ -56,6 +62,9 @@
     <section class="block" id="notes" aria-label="How to read this page and data notes"></section>
   </main>
 
+  <main class="wrap" id="view-live" hidden></main>
+
   <script type="module" src="app.js"></script>
+  <script type="module" src="live.js"></script>
 </body>
 </html>
