@@ -2,7 +2,7 @@
 // Starts from the PLM snapshot and moves every piece through the stations in working time:
 // each person takes the next piece of their station (earliest delivery first) and works its standard hours.
 // Connected to the real PLM, these events would come from the status changes instead of from this clock.
-import { STEPS, nextWorkingDay } from './engine.js';
+import { STEPS, nextWorkingDay, workingDaysBetween } from './engine.js';
 
 export const DAY_HOURS = 8;
 // Where a piece can be, in process order. Waiting stages have no people: they end when the delivery arrives.
@@ -27,7 +27,7 @@ export function createLine(data) {
   const pieces = data.items.map((i) => {
     const stage = FROM_PLM[i.currentStep] || 'cad';
     const p = {
-      id: i.id, name: i.item, delivery: i.delivery, stage,
+      id: i.id, name: i.item, delivery: i.delivery, category: i.category, type: i.type, difficulty: i.difficulty, stage,
       left: { ...i.hoursToDo }, std: { ...i.hoursToDo },
       arriveAt: null, doneAt: stage === 'done' ? -1 : null, worker: null,
     };
@@ -37,7 +37,7 @@ export function createLine(data) {
   });
   const line = {
     data, pieces, t: 0, events: [], days: [data.config.today],
-    workers: Object.fromEntries(STEPS.map((s) => [s, Array.from({ length: data.config.people[s] }, () => ({ piece: null }))])),
+    workers: Object.fromEntries(STEPS.map((s) => [s, Array.from({ length: data.config.people[s] }, () => ({ piece: null, absent: null }))])),
   };
   for (const p of pieces) settle(line, p);
   return line;
@@ -71,7 +71,6 @@ function settle(line, p) {
 
 function advance(line, p, announce = true) {
   const from = p.stage;
-  const label = (s) => line.data.config.steps.find((x) => x.key === s)?.label || s;
   if (STEPS.includes(from)) p.left[from] = 0;
   const next = STAGES[STAGES.indexOf(from) + 1];
   if (next === 'materials' || next === 'accessories') {
@@ -83,11 +82,12 @@ function advance(line, p, announce = true) {
     p.doneAt = line.t;
     if (announce) log(line, 'done', `${p.name} finished`, { piece: p.id, delivery: p.delivery });
   } else if (announce && STEPS.includes(from)) {
-    log(line, 'step', `${p.name} · ${label(from)} done`, { piece: p.id, station: from });
+    log(line, 'step', `${p.name} · ${label(line, from)} done`, { piece: p.id, station: from });
   }
   if (STEPS.includes(next) && p.left[next] <= 1e-9) advance(line, p, false);
 }
 
+const label = (line, s) => line.data.config.steps.find((x) => x.key === s)?.label || s;
 const byPriority = (a, b) => (a.delivery < b.delivery ? -1 : a.delivery > b.delivery ? 1 : a.id - b.id);
 export const queueOf = (line, s) => line.pieces.filter((p) => p.stage === s && p.worker === null).sort(byPriority);
 
@@ -107,6 +107,11 @@ export function tick(line, dt) {
       const ws = line.workers[s];
       for (let k = 0; k < ws.length; k++) {
         const w = ws[k];
+        if (w.absent) {
+          if (line.t < w.absent.until - 1e-9) continue;
+          log(line, 'team', `${label(line, s)}: ${w.absent.who} is back`);
+          w.absent = null;
+        }
         if (w.piece === null) {
           const next = queueOf(line, s)[0];
           if (!next) continue;
@@ -129,11 +134,41 @@ export function tick(line, dt) {
 // Change the team of a station while the line runs. A person who leaves puts the piece back in the queue.
 export function setPeople(line, s, n) {
   const ws = line.workers[s];
-  while (ws.length < n) ws.push({ piece: null });
+  while (ws.length < n) ws.push({ piece: null, absent: null });
   while (ws.length > n) {
     const w = ws.pop();
     if (w.piece !== null) line.pieces[w.piece - 1].worker = null;
   }
+}
+
+// ---------- absences: normal conditions = everybody in ----------
+const startOfDay = (t) => Math.floor(t / DAY_HOURS + 1e-9) * DAY_HOURS;
+export const present = (line, s) => line.workers[s].filter((w) => !w.absent).length;
+export const absences = (line) => STEPS.flatMap((s) => line.workers[s].filter((w) => w.absent).map((w) => ({ station: s, ...w.absent })));
+
+// One person of the station is out from now until the end of the day `days` working days from today.
+// Their piece goes back to the queue, so the rest of the team picks it up.
+export function reportAbsence(line, s, days, reason) {
+  const ws = line.workers[s];
+  const w = [...ws].reverse().find((x) => !x.absent && x.piece === null) || [...ws].reverse().find((x) => !x.absent);
+  if (!w) return false;
+  if (w.piece !== null) { line.pieces[w.piece - 1].worker = null; w.piece = null; }
+  const n = ws.indexOf(w) + 1;
+  w.absent = { who: `Artisan ${n}`, reason, from: line.t, until: startOfDay(line.t) + days * DAY_HOURS };
+  log(line, 'alert', `${label(line, s)}: ${w.absent.who} ${reason.toLowerCase()} · out ${days === 1 ? 'today' : `${days} working days`}`);
+  return true;
+}
+export function clearAbsences(line) {
+  for (const s of STEPS) for (const w of line.workers[s]) w.absent = null;
+  log(line, 'good', 'Back to normal conditions: everyone is in');
+}
+
+// Hours a station loses to absences between the start of today and the end of `date`.
+// engine.js counts today's hours in full, so the loss is counted from the start of today too.
+export function absentHours(line, s, date) {
+  const from = startOfDay(line.t);
+  const end = from + workingDaysBetween(dayOf(line), date, line.data.config.holidays) * DAY_HOURS;
+  return line.workers[s].reduce((t, w) => t + (w.absent ? Math.max(0, Math.min(w.absent.until, end) - from) : 0), 0);
 }
 
 // The same data as the PLM download, rebuilt from the live state: lets engine.js forecast every delivery now.

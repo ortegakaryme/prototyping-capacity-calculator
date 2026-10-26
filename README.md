@@ -23,6 +23,9 @@ A decision tool for a luxury leather goods prototyping workshop in Florence, whe
 - **All deliveries** at a glance.
 - **Plan the team:** add or remove people, add overtime or move a delivery, and see every number update at once.
 - **Live line (second tab):** the workshop as it runs, as if the page were connected to the PLM. A clock moves every piece through the stations; each card shows who is working on what, the queue in pieces, hours and days of work, and the pieces of at-risk deliveries in red. A feed lists each status change and pushes alerts (a queue above 3 days, a delivery turning red, people with no piece ready), and the delivery forecast is recalculated with every change. People can be moved between stations while the line runs.
+- **Factory floor:** one bench per artisan at each station (working, free or absent), the queues as small squares and a moving belt from CAD to finished.
+- **Absences:** the forecast starts in normal conditions (everybody in). Report that someone is sick, on holiday or in training for a day, two days or a week, and the page shows the hours the station loses and which deliveries change state.
+- **What is on the line:** the product mix of the same pieces: small leather goods are 65% of the pieces, bags take the largest share of the hours left.
 
 Key finding on the 28 Nov 2025 data: the 10 December delivery (124 pieces) needed 1,120 h with 704 h available. That is 455 h short across three stations, flagged almost two weeks in advance.
 

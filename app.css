@@ -315,3 +315,62 @@ button.orow:hover { background: var(--paper-2); }
   .ldel .chip-bar { grid-column: 1 / -1; }
   .lclock-t { font-size: 44px; line-height: 44px; }
 }
+
+/* Live line v2: conditions, factory floor with benches and a belt, product mix */
+.cond { margin-top: var(--s-6); border: 1px solid var(--rule); padding: var(--s-4) var(--s-5); display: flex; flex-direction: column; gap: var(--s-4); }
+.cond.is-off { border-color: var(--st-amber); background: var(--st-amber-tint); }
+.cond-state { display: flex; gap: var(--s-3); align-items: baseline; font: var(--t-body); }
+.cond-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--st-green); flex: none; transform: translateY(1px); }
+.cond.is-off .cond-dot { background: var(--st-amber); }
+.cond-form { display: flex; align-items: end; gap: var(--s-4); flex-wrap: wrap; }
+.cond-form > .label { align-self: center; margin-right: var(--s-2); }
+.cond-f { display: flex; flex-direction: column; gap: 4px; }
+.cond-f .select { height: 44px; min-width: 160px; }
+.cond-impact:empty { display: none; }
+.cond-impact { border-top: 1px solid var(--rule); padding-top: var(--s-3); }
+.imps { display: flex; flex-direction: column; gap: 6px; margin-top: var(--s-3); }
+.imp { display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap; }
+.imp > .num { min-width: 96px; }
+
+.floor { margin-top: var(--s-6); background: var(--paper-2); padding: var(--s-5) var(--s-5) var(--s-4); position: relative; }
+.floor-head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s-4); flex-wrap: wrap; }
+.floor .line { margin-top: var(--s-4); position: relative; z-index: 1; }
+.floor .lc { background: var(--paper); }
+.floor .lw:not(.lw-done) { background: repeating-linear-gradient(135deg, var(--paper-2) 0 6px, var(--paper) 6px 9px); }
+.floor .lw-done { background: var(--paper); }
+.belt { height: 14px; margin-top: var(--s-3); background: repeating-linear-gradient(90deg, var(--ink-2) 0 2px, var(--ink-4) 2px 18px); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); background-size: 18px 100%; }
+.floor.is-running .belt { animation: belt 0.9s linear infinite; }
+@keyframes belt { from { background-position: 0 0; } to { background-position: 18px 0; } }
+.benches { display: flex; flex-direction: column; gap: 6px; }
+.bench { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: var(--s-2); align-items: center; padding: 6px 8px; border: 1px solid var(--rule); background: var(--paper); }
+.bench .pi { width: 16px; height: 22px; }
+.bench .pi::before { left: 4px; width: 8px; height: 8px; }
+.bench .pi::after { width: 16px; height: 11px; border-radius: 8px 8px 0 0; }
+.desk { display: flex; flex-direction: column; gap: 4px; min-width: 0; font: var(--t-small); }
+.desk-top { display: flex; justify-content: space-between; gap: var(--s-2); white-space: nowrap; }
+.desk-top > :first-child { overflow: hidden; text-overflow: ellipsis; }
+.bench.is-idle { border-style: dashed; background: var(--paper-2); }
+.bench.is-absent { border-color: var(--st-amber); background: var(--st-amber-tint); color: var(--st-amber); }
+.bench.is-risk .ink { color: var(--st-red); }
+.bench.is-risk .lprog i { background: var(--st-red); }
+.pi.is-absent::before, .pi.is-absent::after { background: var(--st-amber-tint); box-shadow: inset 0 0 0 1.5px var(--st-amber); }
+.st-absent { color: var(--st-amber); font-weight: 500; }
+.lc-team { padding: var(--s-2) 0; border-top: 1px solid var(--rule); border-bottom: 0; align-items: center; }
+.lkey .pi { width: 14px; height: 20px; }
+
+.mix .sim-title { max-width: 1100px; }
+.mix-rows { margin-top: var(--s-5); border-top: 1px solid var(--rule); }
+.mrow { display: grid; grid-template-columns: 280px minmax(0, 1fr) 110px 300px; gap: var(--s-4); align-items: center; padding: var(--s-3) 0; border-bottom: 1px solid var(--rule); }
+.mrow-name { display: flex; flex-direction: column; }
+.mrow-n { font: 500 22px/26px var(--font-text); text-align: right; }
+.mix-bar { display: block; height: 16px; }
+.mix-all { display: block; height: 100%; background: var(--ink-4); position: relative; }
+.mix-all i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--ink); }
+@media (prefers-reduced-motion: reduce) { .floor.is-running .belt { animation: none; } }
+@media (max-width: 1100px) {
+  .floor { padding: var(--s-4) var(--s-3); }
+  .belt { display: none; }
+  .mrow { grid-template-columns: 1fr auto; }
+  .mix-bar { grid-column: 1 / -1; }
+  .cond-form .btn { width: 100%; }
+}
