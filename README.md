@@ -2,6 +2,10 @@
 
 **Will each delivery date be met with the people we have, and if not, what should we do?**
 
+**[▶ Live demo](https://prototyping-capacity-calculator.vercel.app)** · Vanilla JavaScript, no build step · Engine tested with `node --test`
+
+[![Overview: 282 pieces across 8 delivery dates, the four stations and their teams, and a traffic light per delivery](docs/screenshot-overview.jpg)](https://prototyping-capacity-calculator.vercel.app)
+
 A decision tool for a luxury leather goods prototyping workshop in Florence, where artisans make by hand the first piece (prototype or sample) of every bag, wallet, belt or suitcase before a collection is produced. Every morning it shows which delivery is at risk, which station is the bottleneck, how many hours are missing, and lets the team test options before deciding.
 
 > Portfolio case study by **Karyme Ortega**, Industrial Engineer. The data is anonymized: piece names, models and collections are not real. Hours, dates and statuses follow a real PLM download (28 Nov 2025).
